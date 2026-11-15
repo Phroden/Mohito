@@ -121,6 +121,18 @@ input:focus { border-color: var(--mint); box-shadow: 0 0 0 4px rgba(168, 240, 19
 
 /* Skjermsiden (skjerm.html): QR-koden stort på en iPad, TV eller ekstra skjerm */
 body.screen { overflow: hidden; }
+/* DJ-hunden i bakgrunnen, dempet så teksten kan leses (QR-koden står uansett på hvitt) */
+body.screen::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(14, 26, 20, 0.55), rgba(14, 26, 20, 0.55)),
+    radial-gradient(120% 90% at 50% 45%, rgba(14, 26, 20, 0) 30%, rgba(14, 26, 20, 0.85) 100%),
+    url(/img/topp-2000.jpg);
+  background-image:
+    linear-gradient(rgba(14, 26, 20, 0.55), rgba(14, 26, 20, 0.55)),
+    radial-gradient(120% 90% at 50% 45%, rgba(14, 26, 20, 0) 30%, rgba(14, 26, 20, 0.85) 100%),
+    image-set(url(/img/topp-2000.webp) type("image/webp"), url(/img/topp-2000.jpg) type("image/jpeg"));
+  background-size: cover; background-position: center; }
+body.screen .screen-text { text-shadow: 0 2px 24px rgba(0, 0, 0, 0.8); }
 .screen-wrap { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; align-content: center; gap: 3vh; padding: 4vh 5vw; text-align: center; }
 .screen-text { display: grid; gap: 1.2vh; justify-items: center; }
 .screen .kicker { font-size: clamp(16px, 2.4vh, 30px); }
@@ -140,7 +152,7 @@ body.tools-on .screen-tools { opacity: 1; pointer-events: auto; }
 .screen-tools button { font: inherit; font-size: 15px; font-weight: 600; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; }
 @media print {
   body.screen, body.screen * { background: #FFFFFF !important; color: #0E1A14 !important; box-shadow: none !important; }
-  .screen-tools { display: none; }
+  .screen-tools, body.screen::before { display: none; }
   .screen-wrap { min-height: 0; padding: 0; }
   .screen-qr img { width: 12cm; }
   body.has-qr .screen-wrap { grid-template-columns: 1fr; text-align: center; }
