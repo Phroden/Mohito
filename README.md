@@ -10,7 +10,7 @@ og ønsket dukker opp i lista i Herah – som bare Frode ser.
 
 ## Slik brukes det
 1. Åpne Mohito i Herah, skriv navnet på kvelden og trykk **Åpne for ønsker** (stenger av seg selv etter valgt antall timer).
-2. **Vis QR stort** på en skjerm, eller skriv den ut.
+2. Åpne **skjermsiden** (knappen «Åpne skjermsiden» i Herah) på en iPad, TV eller ekstra skjerm – den viser QR-koden uten Herah og kan også skrives ut.
 3. Ønskene kommer inn i lista. Like låter slås sammen («×3»).
 4. **Ny kode** gjør gamle QR-koder ugyldige.
 

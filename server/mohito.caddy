@@ -18,6 +18,8 @@ mohito.frodewerner.no {
 	}
 	handle {
 		root * /var/www/mohito
+		# /skjerm → skjerm.html (skjermsiden med QR-koden)
+		try_files {path} {path}.html
 		file_server
 	}
 }
