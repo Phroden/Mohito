@@ -1,0 +1,23 @@
+# Mohito – ønskesiden. Kopieres til /etc/caddy/sites/mohito.caddy av server/install.sh
+# (Herah sin Caddyfile tar med /etc/caddy/sites/*.caddy). Filene ligger i /var/www/mohito,
+# og /api/mohito* går til Herah (data-api på 127.0.0.1:8080), som bare svarer på det på dette vertsnavnet.
+mohito.frodewerner.no {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		Content-Security-Policy "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		X-Robots-Tag "noindex, nofollow"
+		Cache-Control "no-cache"
+		-Server
+	}
+	handle /api/mohito* {
+		reverse_proxy 127.0.0.1:8080
+	}
+	handle {
+		root * /var/www/mohito
+		file_server
+	}
+}
