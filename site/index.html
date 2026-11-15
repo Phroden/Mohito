@@ -8,18 +8,24 @@
   <meta name="theme-color" content="#0E1A14">
   <title>Ønsk deg en låt · Mohito</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/style.css?v=3">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="/img/topp-800.webp 800w, /img/topp-1200.webp 1200w, /img/topp-2000.webp 2000w" imagesizes="100vw">
+  <link rel="stylesheet" href="/style.css?v=5">
   <script src="/app.js?v=1" defer></script>
 </head>
 <body>
-  <main class="wrap">
-    <header class="top">
-      <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 48 48"><path class="glass" d="M10 10 H38 L33 40 A3 3 0 0 1 30 42 H18 A3 3 0 0 1 15 40 Z"/><path class="drink" d="M12.4 20 H35.6 L32 39.4 A1.6 1.6 0 0 1 30.4 40.6 H17.6 A1.6 1.6 0 0 1 16 39.4 Z"/><circle class="lime" cx="36" cy="11" r="7"/><path class="lime-in" d="M36 6 V16 M31 11 H41 M32.5 7.5 L39.5 14.5 M39.5 7.5 L32.5 14.5"/><path class="straw" d="M22 44 L29 3"/><circle class="bubble" cx="21" cy="30" r="1.6"/><circle class="bubble b2" cx="26" cy="34" r="1.2"/><circle class="bubble b3" cx="24" cy="25" r="1"/></svg>
-      </div>
+  <header class="top">
+    <picture class="hero">
+      <source type="image/webp" srcset="/img/topp-800.webp 800w, /img/topp-1200.webp 1200w, /img/topp-2000.webp 2000w" sizes="100vw">
+      <img src="/img/topp-1200.jpg" srcset="/img/topp-800.jpg 800w, /img/topp-1200.jpg 1200w, /img/topp-2000.jpg 2000w" sizes="100vw"
+           width="2000" height="698" fetchpriority="high" alt="En hund i paljettvest med drink i hånda spiller DJ under en diskokule">
+    </picture>
+    <div class="top-text">
       <p class="kicker" id="kveld">Mohito</p>
       <h1>Ønsk deg en låt</h1>
-    </header>
+    </div>
+  </header>
+  <main class="wrap">
+
 
     <!-- Henter -->
     <section class="card state" id="loading" aria-live="polite">

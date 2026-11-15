@@ -4,7 +4,8 @@
 
 ## Struktur
 - `site/index.html`, `site/app.js`, `site/style.css`, `site/favicon.svg` – siden. Tilstander: henter / uten kode / stengt / åpen / sendt, og «Dine ønsker».
-- `site/skjerm.html` + `site/skjerm.js` – skjermsiden (`/skjerm?s=…`, Caddy: `try_files {path} {path}.html`): QR-koden stort på iPad/TV, uten Herah. Henter hvert 15. s (følger åpen/stengt og ny kode), holder skjermen våken, fullskjerm og utskrift.
+- `site/img/topp-{800,1200,2000}.{webp,jpg}` – toppbildet på ønskesiden (DJ-hunden), beskåret fra Frodes bilde (uten skjermdump-tekst og hjemmestrek). `<picture>` med srcset, gradient ned i bakgrunnen.
+- `site/skjerm.html` + `site/skjerm.js` – skjermsiden (DJ-hunden dempet i bakgrunnen, `body.screen::before`, ikke på utskrift) (`/skjerm?s=…`, Caddy: `try_files {path} {path}.html`): QR-koden stort på iPad/TV, uten Herah. Henter hvert 15. s (følger åpen/stengt og ny kode), holder skjermen våken, fullskjerm og utskrift.
 - `server/mohito.caddy` – Caddy: filene fra `/var/www/mohito`, `/api/mohito*` til Herah på 127.0.0.1:8080, CSP og andre hoder.
 - `server/install.sh` – kopierer filene og Caddy-fila på serveren.
 
