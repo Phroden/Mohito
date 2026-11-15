@@ -31,22 +31,16 @@ body {
   background-attachment: fixed;
 }
 [hidden] { display: none !important; }
-.wrap { max-width: 520px; margin: 0 auto; padding: max(28px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom)); }
+.wrap { max-width: 520px; margin: 0 auto; padding: 0 16px max(28px, env(safe-area-inset-bottom)); }
 
-/* Toppen */
-.top { text-align: center; margin-bottom: 22px; }
-.logo { width: 72px; height: 72px; margin: 0 auto 10px; }
-.logo svg { width: 100%; height: 100%; overflow: visible; }
-.logo .glass { fill: rgba(234, 247, 239, 0.08); stroke: var(--text); stroke-width: 2; stroke-linejoin: round; }
-.logo .drink { fill: var(--mint); opacity: 0.85; }
-.logo .lime { fill: var(--lime); stroke: #8DB51C; stroke-width: 1.5; }
-.logo .lime-in { stroke: #EEFFB8; stroke-width: 1; stroke-linecap: round; }
-.logo .straw { stroke: #F08A4B; stroke-width: 3; stroke-linecap: round; }
-.logo .bubble { fill: #FFFFFF; opacity: 0.8; animation: bubble 3.2s ease-in infinite; }
-.logo .b2 { animation-delay: 1.1s; }
-.logo .b3 { animation-delay: 2.2s; }
-@keyframes bubble { 0% { transform: translateY(6px); opacity: 0; } 30% { opacity: 0.8; } 100% { transform: translateY(-12px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .logo .bubble { animation: none; } }
+/* Toppen: bildet over hele bredden, som glir over i bakgrunnen */
+.top { position: relative; text-align: center; margin-bottom: 18px; }
+.hero { display: block; position: relative; height: clamp(290px, 36vw, 520px); overflow: hidden; background: #120A22; }
+.hero img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(14, 26, 20, 0.35) 0%, rgba(14, 26, 20, 0) 18%, rgba(14, 26, 20, 0) 74%, rgba(14, 26, 20, 0.8) 92%, var(--bg) 100%); }
+.top-text { position: relative; z-index: 1; margin-top: -26px; padding: 0 16px; }
+.top-text h1, .top-text .kicker { text-shadow: 0 2px 18px rgba(0, 0, 0, 0.75); }
 .kicker { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); overflow-wrap: anywhere; }
 h1 { margin: 4px 0 0; font-size: clamp(32px, 9vw, 44px); line-height: 1.05; letter-spacing: -0.02em; }
 h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.2; }
